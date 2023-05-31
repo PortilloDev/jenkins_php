@@ -1,0 +1,27 @@
+version: "3.7"
+
+volumes:
+  jenkins_home:
+    driver: local
+
+services:
+  jenkins:
+    image: johnnypl/jenkins-php:latest
+    container_name: jenkins_php
+    privileged: true
+    user: root
+    env_file:
+      - .env
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+      args:
+        - TZ=Europe/Madrid
+        - TARGET_PHP_VERSION=${TARGET_PHP_VERSION}
+        - TARGET_NODEJS_VERSION=${TARGET_NODEJS_VERSION}
+    ports:
+      - 8080:8080
+      - 50000:50000
+    volumes:
+      - jenkins_home:/var/jenkins_home
+    restart: always
