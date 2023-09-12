@@ -117,7 +117,7 @@ Pipelines nos permiten configurar nuestros Jobs con código en lugar de hacerlo 
 En Jenkins los hay de dos maneras: Scripting y Declarative.
 
 ## Slaves
-Los Slaves nos permiten correr Jobs distribuidamente. Se conecta al Jenkins master y este le delega trabajos al Slave como si fuese otra máquina puede ser virtual, física como quieras hacerlo, nos permite escalar horizontalmente.
+Los Slaves nos permiten correr Jobs distribuidamente. Se conecta al Jenkins master y este le delega trabajos al Slave como si fuese otra máquina.
 Permiten escalar horizontalmente.
 
 ## Configurar slave
@@ -140,3 +140,11 @@ Permiten escalar horizontalmente.
   - description
   - executor similar al número de CPU disponibles
   - labels es para relacionar slaves con jobs que solo quiere se ejecute por ese slave
+
+## Comandos docker
+
+- copiar fichero dentro del contenedor ```docker cp scripts/byTest/hello_script.sh jenkins_php:/opt  ```
+- entrar en contenedor como usuario root `docker exec -ti -u root jenkins_php bash`
+
+
+## Ejecutar los scripts de forma remota por ssh
