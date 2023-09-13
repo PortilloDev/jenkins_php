@@ -10,4 +10,7 @@ Creación de una maquina virtual
 - Instalar plugin ssh en la interfaz de jenkins
   - Instalar ssh plugin
   - Añadir credenciales en administrar jenkins / credenciales
-  - añadir servicio ssh en administrar jenkins / sistemas
+  - Añadir servicio ssh en administrar jenkins / sistemas
+
+- Ejecutar jobs por ssh
+  - 
