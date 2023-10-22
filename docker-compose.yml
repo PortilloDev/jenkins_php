@@ -2,8 +2,10 @@ version: "3.7"
 
 services:
   jenkins:
-    image: jenkins/jenkins
-    container_name: jenkins_php
+    container_name: jenkins
+    image: jenkins_ansible
+    build:
+      context: jenkins_ansible
     ports:
       - 8080:8080
     volumes:
@@ -29,7 +31,16 @@ services:
       - $PWD/db_data:/var/lib/mysql
     networks:
       - net
-
+  web:
+    container_name: web
+    platform: linux/x86_64
+    image:  serverbee/nginx-php-fpm-72-centos7
+    build:
+      context:
+    ports:
+      - 8060:80
+    networks:
+      - net
 
 networks:
   net:

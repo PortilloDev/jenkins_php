@@ -147,4 +147,26 @@ Permiten escalar horizontalmente.
 - entrar en contenedor como usuario root `docker exec -ti -u root jenkins_php bash`
 
 
-## Ejecutar los scripts de forma remota por ssh
+## Comandos ansible
+- comprueba nuestra conexión   `ansible -m ping -i hosts test1`
+- ejecutar una playbook `ansible-playbook -i hosts playbook.yml`
+
+
+
+## Crear y llenar una BD 
+
+  - Acceder al contenedor `docker exec -it db_host bash`
+  - Iniciar sesión en MySql `mysql -u root -p `
+  - Crear Base de datos `create database people;` 
+  - Indicar base de datos `use people;`
+  - Crear tabla `create table registro (id int(2), nombre varchar(50), apellido varchar(50), edad int(3));`
+  - Revisar lo creado `show registro` y `desc registro`
+
+### Script para poblar base de datos con bash
+  - Crear script
+  - Pasar script y fichero de usuario al docker
+    - `docker cp people.txt db_host:/tmp` o `docker cp /jenkins_ansible/people.txt db_host:/tmp`
+    - `docker cp  script_db.sh db_host:/tmp` o `docker cp /jenkins_ansible/ script_db.sh db_host:/tmp`
+
+## Crear WS con Ngnix, PHP y SSH
+
